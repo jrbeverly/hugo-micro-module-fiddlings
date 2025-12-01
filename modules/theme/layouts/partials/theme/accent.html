@@ -1,0 +1,11 @@
+{{- /* Site-supplied accent override.
+
+Only --hmm-accent is overridden: the wash and ink variants are derived from it in
+theme.css, so one value in the data record re-tints every module that uses the token.
+Weight -90 places this immediately after the token sheet and before any component
+style. */ -}}
+{{- $accent := index .settings "accent" | default "" -}}
+{{- $dark := index .settings "accentDark" | default $accent -}}
+{{- if $accent -}}
+<style>:root{--hmm-accent:{{ $accent }}}@media (prefers-color-scheme:dark){:root{--hmm-accent:{{ $dark }}}}</style>
+{{- end -}}

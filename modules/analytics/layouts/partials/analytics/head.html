@@ -1,0 +1,3 @@
+{{ $asset := resources.Get "analytics/tracker.js" }}
+{{ $identifier := index .settings "identifier" | default "" }}
+<script src="{{ $asset.RelPermalink }}" data-analytics-id="{{ $identifier }}"></script>

@@ -1,0 +1,38 @@
+{{- /* Renders the resolved registry as a card per module.
+
+Consumes the orchestrator's registry partial rather than reading data/contributions
+directly, so activation and ordering are never resolved twice. An installed module
+whose data record is missing still appears here — dimmed, with the reason — because
+the registry keeps resolved-but-inactive records. An uninstalled module has no records
+at all and simply disappears. */ -}}
+{{- $title := index .settings "title" | default "Composed modules" -}}
+{{- $intro := index .settings "intro" | default "" -}}
+{{- $records := partial "registry.html" (dict "hook" "") -}}
+{{- $names := slice -}}
+{{- range $records }}{{ $names = $names | append .module }}{{ end -}}
+{{- $names = $names | uniq | sort -}}
+<section class="hmm-composition" aria-labelledby="composed-modules">
+  <h2 id="composed-modules">{{ $title }}</h2>
+  {{- with $intro }}
+  <p>{{ . }}</p>
+  {{- end }}
+  <ul class="hmm-composition__grid">
+    {{- range $name := $names }}
+    {{- $entries := where $records "module" $name -}}
+    {{- $first := index $entries 0 -}}
+    {{- $live := $first.enabled }}
+    <li class="hmm-module{{ if not $live }} hmm-module--idle{{ end }}">
+      <div class="hmm-module__head">
+        <span class="hmm-module__name">{{ $name }}</span>
+        <span class="hmm-module__state{{ if $live }} hmm-module__state--live{{ end }}">{{ if $live }}active{{ else }}inactive{{ end }}</span>
+      </div>
+      <p class="hmm-module__meta">{{ len $entries }} contribution{{ if ne (len $entries) 1 }}s{{ end }} <span class="hmm-module__reason">{{ $first.reason }}</span></p>
+      <ul class="hmm-module__hooks">
+        {{- range $entries }}
+        <li class="hmm-module__hook"><code>{{ .hook }}</code><span class="hmm-module__type">{{ .type }}</span></li>
+        {{- end }}
+      </ul>
+    </li>
+    {{- end }}
+  </ul>
+</section>

@@ -1,0 +1,21 @@
+[
+  {
+    "id": "nav-style",
+    "hook": "head",
+    "type": "style",
+    "resource": "nav/nav.css",
+    "weight": -40
+  },
+  {
+    "id": "nav-items",
+    "hook": "header.start",
+    "partial": "nav/items.html",
+    "weight": 20
+  },
+  {
+    "id": "nav-panel",
+    "hook": "footer.panel",
+    "partial": "nav/panel.html",
+    "weight": 10
+  }
+]

@@ -1,0 +1,15 @@
+[
+  {
+    "id": "locale-style",
+    "hook": "head",
+    "type": "style",
+    "resource": "locale/locale.css",
+    "weight": -40
+  },
+  {
+    "id": "locale-switch",
+    "hook": "header.end",
+    "partial": "locale/switch.html",
+    "weight": 50
+  }
+]

@@ -1,0 +1,14 @@
+[
+  {
+    "id": "masthead-style",
+    "hook": "head",
+    "type": "style",
+    "resource": "masthead/masthead.css",
+    "weight": -40
+  },
+  {
+    "id": "masthead-shell",
+    "hook": "header",
+    "partial": "masthead/shell.html"
+  }
+]

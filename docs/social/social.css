@@ -1,0 +1,37 @@
+/* social micro-module — its own link list, nothing about panel placement. */
+
+.hmm-social {
+  display: grid;
+  gap: 0.3rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.hmm-social__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  color: var(--hmm-ink-muted);
+  font-size: 0.85rem;
+  text-decoration: none;
+}
+
+.hmm-social__link:hover,
+.hmm-social__link:focus-visible {
+  color: var(--hmm-accent);
+}
+
+.hmm-social__link:hover span {
+  text-decoration: underline;
+}
+
+.hmm-social__glyph {
+  flex: none;
+  color: var(--hmm-ink-faint);
+}
+
+.hmm-social__link:hover .hmm-social__glyph,
+.hmm-social__link:focus-visible .hmm-social__glyph {
+  color: inherit;
+}

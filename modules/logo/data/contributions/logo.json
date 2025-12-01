@@ -1,0 +1,14 @@
+[
+  {
+    "id": "logo-style",
+    "hook": "head",
+    "type": "style",
+    "resource": "logo/logo.css",
+    "weight": -40
+  },
+  {
+    "id": "logo-mark",
+    "hook": "header.start",
+    "partial": "logo/mark.html"
+  }
+]

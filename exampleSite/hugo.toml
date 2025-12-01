@@ -1,0 +1,35 @@
+title = "Hugo Micro Module Fixture"
+
+# GitHub Pages serves ../docs from main at this URL. Build into it with
+# `hugo -d ../docs --cleanDestinationDir`; publishDir stays default so `hugo server`
+# writes to the gitignored public/ instead of the published folder.
+baseURL = "https://jrbeverly.github.io/hugo-micro-module-fiddlings/"
+
+# Site-wide generics only. Module activation and module settings live in
+# data/micromodules/<module>.json — a module with no data record stays inactive.
+[params.micromodules]
+  debug = true
+
+[module]
+  [[module.imports]]
+    path = "example.com/hmm/orchestrator"
+  [[module.imports]]
+    path = "example.com/hmm/theme"
+  [[module.imports]]
+    path = "example.com/hmm/masthead"
+  [[module.imports]]
+    path = "example.com/hmm/colophon"
+  [[module.imports]]
+    path = "example.com/hmm/logo"
+  [[module.imports]]
+    path = "example.com/hmm/nav"
+  [[module.imports]]
+    path = "example.com/hmm/locale"
+  [[module.imports]]
+    path = "example.com/hmm/social"
+  [[module.imports]]
+    path = "example.com/hmm/copyright"
+  [[module.imports]]
+    path = "example.com/hmm/composition"
+  [[module.imports]]
+    path = "example.com/hmm/analytics"

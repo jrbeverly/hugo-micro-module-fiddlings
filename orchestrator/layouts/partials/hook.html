@@ -1,0 +1,29 @@
+{{- /* Renders every active contribution registered against one extension surface.
+
+Params:
+  hook  required. Surface name, e.g. "head", or a nested "<region>.<slot>".
+  page  required. The page being rendered.
+
+Contribution types:
+  partial  calls the module renderer with (page, contribution, settings)
+  style    links the module stylesheet resource
+
+A module that renders a region may call this partial again with a nested surface name,
+collecting contributions from modules it knows nothing about. Nested surfaces resolve
+only when their owner renders, so suppressing a region suppresses its guests. */ -}}
+{{- $hook := .hook -}}
+{{- $page := .page -}}
+{{- $site := $page.Site -}}
+{{- $debug := and $site.Params.micromodules (index $site.Params.micromodules "debug") -}}
+{{- $records := partial "registry.html" (dict "hook" $hook) -}}
+{{- range $i, $rec := $records }}
+{{ if $debug }}{{ printf "<!-- hmm:contribution id=%q hook=%q type=%q renderer=%q order=%d weight=%d enabled=%v reason=%q -->" $rec.id $hook $rec.type (or $rec.partial $rec.resource) $i $rec.weight $rec.enabled $rec.reason | safeHTML }}
+{{ end -}}
+{{- if $rec.enabled -}}
+{{- if eq $rec.type "style" -}}
+{{- with resources.Get $rec.resource }}<link rel="stylesheet" href="{{ .RelPermalink }}">{{ end -}}
+{{- else -}}
+{{- partial $rec.partial (dict "page" $page "contribution" $rec "settings" $rec.settings) -}}
+{{- end -}}
+{{- end -}}
+{{- end }}

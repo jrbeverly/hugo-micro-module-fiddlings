@@ -1,0 +1,11 @@
+{{- /* A live count of what the orchestrator resolved, placed in the trailing group of the
+top region. */ -}}
+{{- $records := partial "registry.html" (dict "hook" "") -}}
+{{- $active := slice -}}
+{{- range $records }}{{ if .enabled }}{{ $active = $active | append .module }}{{ end }}{{ end -}}
+{{- $rendered := where $records "enabled" true -}}
+<span class="hmm-badge" title="Resolved by the orchestrator at build time">
+  <span class="hmm-badge__num">{{ len ($active | uniq) }}</span> modules
+  <span class="hmm-badge__sep" aria-hidden="true">·</span>
+  <span class="hmm-badge__num">{{ len $rendered }}</span> contributions
+</span>

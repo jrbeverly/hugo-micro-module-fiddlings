@@ -1,0 +1,15 @@
+[
+  {
+    "id": "social-style",
+    "hook": "head",
+    "type": "style",
+    "resource": "social/social.css",
+    "weight": -40
+  },
+  {
+    "id": "social-panel",
+    "hook": "footer.panel",
+    "partial": "social/panel.html",
+    "weight": 20
+  }
+]

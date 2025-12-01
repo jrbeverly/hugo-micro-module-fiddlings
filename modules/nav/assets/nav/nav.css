@@ -1,0 +1,47 @@
+/* nav micro-module — styles only its own links.
+ *
+ * Placement of the surrounding row or column belongs to the region owners; this module
+ * never positions itself.
+ */
+
+.hmm-nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.15rem;
+}
+
+.hmm-nav__link {
+  padding: 0.35rem 0.62rem;
+  border-radius: var(--hmm-radius-pill);
+  color: var(--hmm-ink-muted);
+  font-size: 0.875rem;
+  text-decoration: none;
+  transition: background-color 120ms ease, color 120ms ease;
+}
+
+.hmm-nav__link:hover,
+.hmm-nav__link:focus-visible {
+  background: var(--hmm-accent-wash);
+  color: var(--hmm-ink);
+}
+
+.hmm-navpanel {
+  display: grid;
+  gap: 0.3rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.hmm-navpanel__link {
+  color: var(--hmm-ink-muted);
+  font-size: 0.85rem;
+  text-decoration: none;
+}
+
+.hmm-navpanel__link:hover,
+.hmm-navpanel__link:focus-visible {
+  color: var(--hmm-accent);
+  text-decoration: underline;
+}

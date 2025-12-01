@@ -1,0 +1,14 @@
+[
+  {
+    "id": "colophon-style",
+    "hook": "head",
+    "type": "style",
+    "resource": "colophon/colophon.css",
+    "weight": -40
+  },
+  {
+    "id": "colophon-shell",
+    "hook": "footer",
+    "partial": "colophon/shell.html"
+  }
+]

@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+	<meta name="generator" content="Hugo 0.165.0">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Hugo Micro Module Fixture</title>
+        
+<!-- hmm:contribution id="theme-tokens" hook="head" type="style" renderer="theme/theme.css" order=0 weight=-100 enabled=true reason="data-present" -->
+<link rel="stylesheet" href="/hugo-micro-module-fiddlings/theme/theme.css">
+<!-- hmm:contribution id="theme-accent" hook="head" type="partial" renderer="theme/accent.html" order=1 weight=-90 enabled=true reason="data-present" -->
+<style>:root{--hmm-accent:#4c46c4}@media (prefers-color-scheme:dark){:root{--hmm-accent:#9d98f5}}</style>
+<!-- hmm:contribution id="analytics-style" hook="head" type="style" renderer="analytics/analytics.css" order=2 weight=-40 enabled=true reason="data-present" -->
+<link rel="stylesheet" href="/hugo-micro-module-fiddlings/analytics/analytics.css">
+<!-- hmm:contribution id="colophon-style" hook="head" type="style" renderer="colophon/colophon.css" order=3 weight=-40 enabled=true reason="data-present" -->
+<link rel="stylesheet" href="/hugo-micro-module-fiddlings/colophon/colophon.css">
+<!-- hmm:contribution id="composition-style" hook="head" type="style" renderer="composition/composition.css" order=4 weight=-40 enabled=true reason="data-present" -->
+<link rel="stylesheet" href="/hugo-micro-module-fiddlings/composition/composition.css">
+<!-- hmm:contribution id="locale-style" hook="head" type="style" renderer="locale/locale.css" order=5 weight=-40 enabled=true reason="data-present" -->
+<link rel="stylesheet" href="/hugo-micro-module-fiddlings/locale/locale.css">
+<!-- hmm:contribution id="logo-style" hook="head" type="style" renderer="logo/logo.css" order=6 weight=-40 enabled=true reason="data-present" -->
+<link rel="stylesheet" href="/hugo-micro-module-fiddlings/logo/logo.css">
+<!-- hmm:contribution id="masthead-style" hook="head" type="style" renderer="masthead/masthead.css" order=7 weight=-40 enabled=true reason="data-present" -->
+<link rel="stylesheet" href="/hugo-micro-module-fiddlings/masthead/masthead.css">
+<!-- hmm:contribution id="nav-style" hook="head" type="style" renderer="nav/nav.css" order=8 weight=-40 enabled=true reason="data-present" -->
+<link rel="stylesheet" href="/hugo-micro-module-fiddlings/nav/nav.css">
+<!-- hmm:contribution id="social-style" hook="head" type="style" renderer="social/social.css" order=9 weight=-40 enabled=true reason="data-present" -->
+<link rel="stylesheet" href="/hugo-micro-module-fiddlings/social/social.css">
+<!-- hmm:contribution id="analytics-head" hook="head" type="partial" renderer="analytics/head.html" order=10 weight=100 enabled=true reason="data-present" -->
+
+
+<script src="/hugo-micro-module-fiddlings/analytics/tracker.js" data-analytics-id="HMM-SAMPLE-001"></script>
+
+
+    </head>
+
+    <body>
+        <a class="hmm-skiplink" href="#hmm-content">Skip to content</a>
+        
+<!-- hmm:contribution id="masthead-shell" hook="header" type="partial" renderer="masthead/shell.html" order=0 weight=0 enabled=true reason="data-present" -->
+<header class="hmm-masthead hmm-masthead--sticky">
+  <div class="hmm-masthead__inner">
+    <div class="hmm-masthead__start">
+<!-- hmm:contribution id="logo-mark" hook="header.start" type="partial" renderer="logo/mark.html" order=0 weight=0 enabled=true reason="data-present" -->
+<a class="hmm-logo" href="/hugo-micro-module-fiddlings/">
+  <svg class="hmm-logo__glyph" width="22" height="22" viewBox="0 0 22 22" aria-hidden="true" focusable="false">
+    <rect x="1.5" y="1.5" width="8" height="8" rx="2.5"></rect>
+    <rect x="12.5" y="1.5" width="8" height="8" rx="2.5" opacity=".55"></rect>
+    <rect x="1.5" y="12.5" width="8" height="8" rx="2.5" opacity=".55"></rect>
+    <rect x="12.5" y="12.5" width="8" height="8" rx="2.5" opacity=".28"></rect>
+  </svg>
+  <span class="hmm-logo__text">
+    <span class="hmm-logo__label">Hugo Micro Modules</span><span class="hmm-logo__sublabel">Orchestrator &#43; micro-modules</span>
+  </span>
+</a>
+
+<!-- hmm:contribution id="nav-items" hook="header.start" type="partial" renderer="nav/items.html" order=1 weight=20 enabled=true reason="data-present" -->
+
+<nav class="hmm-nav" aria-label="Primary">
+  <a class="hmm-nav__link" href="#overview">Overview</a>
+  <a class="hmm-nav__link" href="#the-contract">Contract</a>
+  <a class="hmm-nav__link" href="#composed-modules">Modules</a>
+</nav>
+
+</div>
+    <div class="hmm-masthead__end">
+<!-- hmm:contribution id="composition-badge" hook="header.end" type="partial" renderer="composition/badge.html" order=0 weight=20 enabled=true reason="data-present" -->
+<span class="hmm-badge" title="Resolved by the orchestrator at build time">
+  <span class="hmm-badge__num">10</span> modules
+  <span class="hmm-badge__sep" aria-hidden="true">·</span>
+  <span class="hmm-badge__num">23</span> contributions
+</span>
+
+<!-- hmm:contribution id="locale-switch" hook="header.end" type="partial" renderer="locale/switch.html" order=1 weight=50 enabled=true reason="data-present" -->
+<span class="hmm-locale" title="Placeholder · EN, FR, JA">
+  <svg class="hmm-locale__glyph" width="15" height="15" viewBox="0 0 16 16" fill="none"
+       stroke="currentColor" stroke-width="1.35" aria-hidden="true" focusable="false">
+    <circle cx="8" cy="8" r="6.3"></circle>
+    <path d="M1.7 8h12.6"></path>
+    <path d="M8 1.7c1.7 1.8 2.6 4 2.6 6.3S9.7 12.5 8 14.3C6.3 12.5 5.4 10.3 5.4 8S6.3 3.5 8 1.7Z"></path>
+  </svg>
+  <span class="hmm-locale__code">EN</span>
+  <svg class="hmm-locale__caret" width="10" height="10" viewBox="0 0 12 12" fill="none"
+       stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
+       aria-hidden="true" focusable="false">
+    <path d="m3.2 4.8 2.8 2.8 2.8-2.8"></path>
+  </svg>
+</span>
+
+</div>
+  </div>
+</header>
+
+
+
+        <main class="hmm-main" id="hmm-content">
+            <h1 id="a-page-assembled-from-micro-modules">A page assembled from micro-modules</h1>
+<p>Fixture home page for a composable Hugo build. The orchestrator ships a skeleton with
+eight named surfaces and no feature code — the brand mark, the navigation, the language
+control, this typography, the cards below and every part of the footer arrive as declared
+contributions from ten independent modules.</p>
+<h2 id="overview">Overview</h2>
+<p>A module is a directory with a <code>go.mod</code>, a registration file under <code>data/contributions/</code>,
+and whatever templates and assets it needs. Installing one adds an import; activating it
+means giving it a data record at <code>data/micromodules/&lt;module&gt;.json</code>. Presence is the
+switch and the contents are the settings — an installed module with no record resolves as
+inactive and renders nothing.</p>
+<p>Site config holds only generics: title, base URL, and whether to emit build traces.
+Nothing in it names a module&rsquo;s templates, and nothing in the orchestrator knows what a
+footer is.</p>
+<h2 id="the-contract">The contract</h2>
+<p>Each entry names a surface, a renderer, and an ordering weight. Renderers come in two
+kinds — a partial the orchestrator calls, or a stylesheet it links:</p>
+<pre tabindex="0"><code>{ &#34;id&#34;: &#34;logo-mark&#34;,    &#34;hook&#34;: &#34;header.start&#34;, &#34;partial&#34;: &#34;logo/mark.html&#34; }
+
+{ &#34;id&#34;: &#34;theme-tokens&#34;, &#34;hook&#34;: &#34;head&#34;, &#34;type&#34;: &#34;style&#34;,
+  &#34;resource&#34;: &#34;theme/theme.css&#34;, &#34;weight&#34;: -100 }
+</code></pre><p>Surfaces belong to the orchestrator; modules may not invent their own:</p>
+<ul>
+<li><code>head</code> — document head</li>
+<li><code>header</code> — top region</li>
+<li><code>header.start</code> / <code>header.end</code> — leading and trailing groups inside it</li>
+<li><code>main</code> — after page content</li>
+<li><code>footer</code> — bottom region</li>
+<li><code>footer.panel</code> / <code>footer.baseline</code> — the panel row and the strip beneath it</li>
+</ul>
+<p>The nested four are opened, not declared, by the modules that render their regions. The
+<code>masthead</code> module draws the top bar and asks who wants the leading and trailing edges;
+<code>logo</code>, <code>nav</code>, <code>composition</code> and <code>locale</code> answer without any of them knowing the others
+exist. The <code>colophon</code> module does the same below, and <code>nav</code>, <code>social</code>, <code>analytics</code> and
+<code>copyright</code> fill it in.</p>
+
+            
+<!-- hmm:contribution id="composition-cards" hook="main" type="partial" renderer="composition/cards.html" order=0 weight=0 enabled=true reason="data-present" -->
+<section class="hmm-composition" aria-labelledby="composed-modules">
+  <h2 id="composed-modules">Composed modules</h2>
+  <p>Every card below is the orchestrator describing itself: module names come from the merged registry, and each row is one declared contribution.</p>
+  <ul class="hmm-composition__grid">
+    <li class="hmm-module">
+      <div class="hmm-module__head">
+        <span class="hmm-module__name">analytics</span>
+        <span class="hmm-module__state hmm-module__state--live">active</span>
+      </div>
+      <p class="hmm-module__meta">3 contributions <span class="hmm-module__reason">data-present</span></p>
+      <ul class="hmm-module__hooks">
+        <li class="hmm-module__hook"><code>head</code><span class="hmm-module__type">style</span></li>
+        <li class="hmm-module__hook"><code>footer.panel</code><span class="hmm-module__type">partial</span></li>
+        <li class="hmm-module__hook"><code>head</code><span class="hmm-module__type">partial</span></li>
+      </ul>
+    </li>
+    <li class="hmm-module">
+      <div class="hmm-module__head">
+        <span class="hmm-module__name">colophon</span>
+        <span class="hmm-module__state hmm-module__state--live">active</span>
+      </div>
+      <p class="hmm-module__meta">2 contributions <span class="hmm-module__reason">data-present</span></p>
+      <ul class="hmm-module__hooks">
+        <li class="hmm-module__hook"><code>head</code><span class="hmm-module__type">style</span></li>
+        <li class="hmm-module__hook"><code>footer</code><span class="hmm-module__type">partial</span></li>
+      </ul>
+    </li>
+    <li class="hmm-module">
+      <div class="hmm-module__head">
+        <span class="hmm-module__name">composition</span>
+        <span class="hmm-module__state hmm-module__state--live">active</span>
+      </div>
+      <p class="hmm-module__meta">4 contributions <span class="hmm-module__reason">data-present</span></p>
+      <ul class="hmm-module__hooks">
+        <li class="hmm-module__hook"><code>head</code><span class="hmm-module__type">style</span></li>
+        <li class="hmm-module__hook"><code>main</code><span class="hmm-module__type">partial</span></li>
+        <li class="hmm-module__hook"><code>header.end</code><span class="hmm-module__type">partial</span></li>
+        <li class="hmm-module__hook"><code>footer.baseline</code><span class="hmm-module__type">partial</span></li>
+      </ul>
+    </li>
+    <li class="hmm-module">
+      <div class="hmm-module__head">
+        <span class="hmm-module__name">copyright</span>
+        <span class="hmm-module__state hmm-module__state--live">active</span>
+      </div>
+      <p class="hmm-module__meta">1 contribution <span class="hmm-module__reason">data-present</span></p>
+      <ul class="hmm-module__hooks">
+        <li class="hmm-module__hook"><code>footer.baseline</code><span class="hmm-module__type">partial</span></li>
+      </ul>
+    </li>
+    <li class="hmm-module">
+      <div class="hmm-module__head">
+        <span class="hmm-module__name">locale</span>
+        <span class="hmm-module__state hmm-module__state--live">active</span>
+      </div>
+      <p class="hmm-module__meta">2 contributions <span class="hmm-module__reason">data-present</span></p>
+      <ul class="hmm-module__hooks">
+        <li class="hmm-module__hook"><code>head</code><span class="hmm-module__type">style</span></li>
+        <li class="hmm-module__hook"><code>header.end</code><span class="hmm-module__type">partial</span></li>
+      </ul>
+    </li>
+    <li class="hmm-module">
+      <div class="hmm-module__head">
+        <span class="hmm-module__name">logo</span>
+        <span class="hmm-module__state hmm-module__state--live">active</span>
+      </div>
+      <p class="hmm-module__meta">2 contributions <span class="hmm-module__reason">data-present</span></p>
+      <ul class="hmm-module__hooks">
+        <li class="hmm-module__hook"><code>head</code><span class="hmm-module__type">style</span></li>
+        <li class="hmm-module__hook"><code>header.start</code><span class="hmm-module__type">partial</span></li>
+      </ul>
+    </li>
+    <li class="hmm-module">
+      <div class="hmm-module__head">
+        <span class="hmm-module__name">masthead</span>
+        <span class="hmm-module__state hmm-module__state--live">active</span>
+      </div>
+      <p class="hmm-module__meta">2 contributions <span class="hmm-module__reason">data-present</span></p>
+      <ul class="hmm-module__hooks">
+        <li class="hmm-module__hook"><code>head</code><span class="hmm-module__type">style</span></li>
+        <li class="hmm-module__hook"><code>header</code><span class="hmm-module__type">partial</span></li>
+      </ul>
+    </li>
+    <li class="hmm-module">
+      <div class="hmm-module__head">
+        <span class="hmm-module__name">nav</span>
+        <span class="hmm-module__state hmm-module__state--live">active</span>
+      </div>
+      <p class="hmm-module__meta">3 contributions <span class="hmm-module__reason">data-present</span></p>
+      <ul class="hmm-module__hooks">
+        <li class="hmm-module__hook"><code>head</code><span class="hmm-module__type">style</span></li>
+        <li class="hmm-module__hook"><code>footer.panel</code><span class="hmm-module__type">partial</span></li>
+        <li class="hmm-module__hook"><code>header.start</code><span class="hmm-module__type">partial</span></li>
+      </ul>
+    </li>
+    <li class="hmm-module">
+      <div class="hmm-module__head">
+        <span class="hmm-module__name">social</span>
+        <span class="hmm-module__state hmm-module__state--live">active</span>
+      </div>
+      <p class="hmm-module__meta">2 contributions <span class="hmm-module__reason">data-present</span></p>
+      <ul class="hmm-module__hooks">
+        <li class="hmm-module__hook"><code>head</code><span class="hmm-module__type">style</span></li>
+        <li class="hmm-module__hook"><code>footer.panel</code><span class="hmm-module__type">partial</span></li>
+      </ul>
+    </li>
+    <li class="hmm-module">
+      <div class="hmm-module__head">
+        <span class="hmm-module__name">theme</span>
+        <span class="hmm-module__state hmm-module__state--live">active</span>
+      </div>
+      <p class="hmm-module__meta">2 contributions <span class="hmm-module__reason">data-present</span></p>
+      <ul class="hmm-module__hooks">
+        <li class="hmm-module__hook"><code>head</code><span class="hmm-module__type">style</span></li>
+        <li class="hmm-module__hook"><code>head</code><span class="hmm-module__type">partial</span></li>
+      </ul>
+    </li>
+  </ul>
+</section>
+
+
+        </main>
+
+        
+<!-- hmm:contribution id="colophon-shell" hook="footer" type="partial" renderer="colophon/shell.html" order=0 weight=0 enabled=true reason="data-present" -->
+<footer class="hmm-colophon">
+  <div class="hmm-colophon__inner">
+    <div class="hmm-colophon__top">
+      <div class="hmm-colophon__identity">
+        <p class="hmm-colophon__name">Hugo Micro Module Fixture</p>
+        <p class="hmm-colophon__blurb">An orchestration fixture: one skeleton, ten micro-modules, no manual wiring.</p>
+      </div>
+      <div class="hmm-colophon__panels">
+<!-- hmm:contribution id="nav-panel" hook="footer.panel" type="partial" renderer="nav/panel.html" order=0 weight=10 enabled=true reason="data-present" -->
+
+<div class="hmm-panel">
+  <h2 class="hmm-panel__title">On this page</h2>
+  <ul class="hmm-navpanel">
+    <li><a class="hmm-navpanel__link" href="#overview">Overview</a></li>
+    <li><a class="hmm-navpanel__link" href="#the-contract">Contract</a></li>
+    <li><a class="hmm-navpanel__link" href="#composed-modules">Modules</a></li>
+  </ul>
+</div>
+
+<!-- hmm:contribution id="social-panel" hook="footer.panel" type="partial" renderer="social/panel.html" order=1 weight=20 enabled=true reason="data-present" -->
+
+<div class="hmm-panel">
+  <h2 class="hmm-panel__title">Elsewhere</h2>
+  <ul class="hmm-social">
+    <li>
+      <a class="hmm-social__link" href="https://example.com/hmm" rel="noopener">
+        <span>Source</span>
+        <svg class="hmm-social__glyph" width="11" height="11" viewBox="0 0 12 12" fill="none"
+             stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"
+             aria-hidden="true" focusable="false">
+          <path d="M3.4 8.6 8.6 3.4"></path>
+          <path d="M4.6 3.4h4v4"></path>
+        </svg>
+      </a>
+    </li>
+    <li>
+      <a class="hmm-social__link" href="https://example.social/@hmm" rel="noopener">
+        <span>Mastodon</span>
+        <svg class="hmm-social__glyph" width="11" height="11" viewBox="0 0 12 12" fill="none"
+             stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"
+             aria-hidden="true" focusable="false">
+          <path d="M3.4 8.6 8.6 3.4"></path>
+          <path d="M4.6 3.4h4v4"></path>
+        </svg>
+      </a>
+    </li>
+    <li>
+      <a class="hmm-social__link" href="/hugo-micro-module-fiddlings/index.xml">
+        <span>Feed</span>
+        <svg class="hmm-social__glyph" width="11" height="11" viewBox="0 0 12 12" fill="none"
+             stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"
+             aria-hidden="true" focusable="false">
+          <path d="M3.4 8.6 8.6 3.4"></path>
+          <path d="M4.6 3.4h4v4"></path>
+        </svg>
+      </a>
+    </li>
+  </ul>
+</div>
+
+<!-- hmm:contribution id="analytics-panel" hook="footer.panel" type="partial" renderer="analytics/status.html" order=2 weight=30 enabled=true reason="data-present" -->
+<div class="hmm-panel">
+  <h2 class="hmm-panel__title">Analytics</h2>
+  <p class="hmm-analytics__stream">
+    <span class="hmm-analytics__dot" aria-hidden="true"></span>
+    <code>HMM-SAMPLE-001</code>
+  </p>
+  <p class="hmm-analytics__note">Injected into <code>head</code> by the same module.</p>
+</div>
+
+</div>
+    </div>
+    <div class="hmm-colophon__baseline">
+<!-- hmm:contribution id="copyright-line" hook="footer.baseline" type="partial" renderer="copyright/line.html" order=0 weight=0 enabled=true reason="data-present" -->
+<p class="hmm-copyright">&copy; 2026 Hugo Micro Module Fixture · Fixture content, no rights reserved</p>
+
+<!-- hmm:contribution id="composition-buildline" hook="footer.baseline" type="partial" renderer="composition/buildline.html" order=1 weight=90 enabled=true reason="data-present" -->
+<p class="hmm-buildline">Hugo 0.165.0 · 10 modules composed</p>
+
+</div>
+  </div>
+</footer>
+
+
+        <!-- hmm:summary modules=10 active=10 contributions=23 surfaces=8 -->
+<!-- hmm:modules analytics colophon composition copyright locale logo masthead nav social theme -->
+    </body>
+</html>

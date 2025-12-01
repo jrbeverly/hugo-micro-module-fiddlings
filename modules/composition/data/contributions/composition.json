@@ -1,0 +1,26 @@
+[
+  {
+    "id": "composition-style",
+    "hook": "head",
+    "type": "style",
+    "resource": "composition/composition.css",
+    "weight": -40
+  },
+  {
+    "id": "composition-cards",
+    "hook": "main",
+    "partial": "composition/cards.html"
+  },
+  {
+    "id": "composition-badge",
+    "hook": "header.end",
+    "partial": "composition/badge.html",
+    "weight": 20
+  },
+  {
+    "id": "composition-buildline",
+    "hook": "footer.baseline",
+    "partial": "composition/buildline.html",
+    "weight": 90
+  }
+]

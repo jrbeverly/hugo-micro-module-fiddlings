@@ -1,0 +1,17 @@
+{{- /* Brand mark and wordmark. Weight 0 keeps it first in the leading group; the module
+knows nothing about the region it sits in beyond the surface name it registered for. */ -}}
+{{- $page := .page -}}
+{{- $label := index .settings "label" | default $page.Site.Title -}}
+{{- $sublabel := index .settings "sublabel" | default "" -}}
+<a class="hmm-logo" href="{{ "" | relURL }}">
+  <svg class="hmm-logo__glyph" width="22" height="22" viewBox="0 0 22 22" aria-hidden="true" focusable="false">
+    <rect x="1.5" y="1.5" width="8" height="8" rx="2.5"></rect>
+    <rect x="12.5" y="1.5" width="8" height="8" rx="2.5" opacity=".55"></rect>
+    <rect x="1.5" y="12.5" width="8" height="8" rx="2.5" opacity=".55"></rect>
+    <rect x="12.5" y="12.5" width="8" height="8" rx="2.5" opacity=".28"></rect>
+  </svg>
+  <span class="hmm-logo__text">
+    <span class="hmm-logo__label">{{ $label }}</span>
+    {{- with $sublabel }}<span class="hmm-logo__sublabel">{{ . }}</span>{{ end }}
+  </span>
+</a>

@@ -1,0 +1,7 @@
+{{- /* A single line of markup and no stylesheet at all: the region owner sets the type
+scale for its baseline, so this module ships one partial and one registration entry.
+Weight 0 puts it at the leading edge of the strip. */ -}}
+{{- $holder := index .settings "holder" | default .page.Site.Title -}}
+{{- $year := index .settings "year" | default "" -}}
+{{- $notice := index .settings "notice" | default "" -}}
+<p class="hmm-copyright">&copy;{{ with $year }} {{ . }}{{ end }} {{ $holder }}{{ with $notice }} · {{ . }}{{ end }}</p>

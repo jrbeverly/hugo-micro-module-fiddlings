@@ -1,0 +1,15 @@
+[
+  {
+    "id": "theme-tokens",
+    "hook": "head",
+    "type": "style",
+    "resource": "theme/theme.css",
+    "weight": -100
+  },
+  {
+    "id": "theme-accent",
+    "hook": "head",
+    "partial": "theme/accent.html",
+    "weight": -90
+  }
+]

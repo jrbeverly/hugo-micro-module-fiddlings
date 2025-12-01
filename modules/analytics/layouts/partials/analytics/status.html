@@ -1,0 +1,11 @@
+{{- /* Surfaces the module's own configuration as a footer panel, so the setting that
+drives the injected script is visible on the page it affects. */ -}}
+{{- $identifier := index .settings "identifier" | default "" -}}
+<div class="hmm-panel">
+  <h2 class="hmm-panel__title">Analytics</h2>
+  <p class="hmm-analytics__stream">
+    <span class="hmm-analytics__dot" aria-hidden="true"></span>
+    <code>{{ $identifier | default "unconfigured" }}</code>
+  </p>
+  <p class="hmm-analytics__note">Injected into <code>head</code> by the same module.</p>
+</div>

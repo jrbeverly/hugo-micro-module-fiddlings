@@ -1,0 +1,22 @@
+{{- /* Renders the bottom region and opens two surfaces inside it: a row of panels and a
+baseline strip.
+
+Publishes the .hmm-panel class envelope that panel contributors fill in, and sets the
+type scale for whatever lands on the baseline, so guests need no layout CSS of their
+own. */ -}}
+{{- $page := .page -}}
+{{- $blurb := index .settings "blurb" | default "" -}}
+<footer class="hmm-colophon">
+  <div class="hmm-colophon__inner">
+    <div class="hmm-colophon__top">
+      <div class="hmm-colophon__identity">
+        <p class="hmm-colophon__name">{{ $page.Site.Title }}</p>
+        {{- with $blurb }}
+        <p class="hmm-colophon__blurb">{{ . }}</p>
+        {{- end }}
+      </div>
+      <div class="hmm-colophon__panels">{{ partial "hook.html" (dict "hook" "footer.panel" "page" $page) }}</div>
+    </div>
+    <div class="hmm-colophon__baseline">{{ partial "hook.html" (dict "hook" "footer.baseline" "page" $page) }}</div>
+  </div>
+</footer>

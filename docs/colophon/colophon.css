@@ -1,0 +1,80 @@
+/* colophon micro-module — the bottom region.
+ *
+ * Owns "footer.panel" and "footer.baseline". The .hmm-panel envelope and the baseline
+ * type scale are this module's contract with its guests: a contributor supplies markup,
+ * this file decides how it sits.
+ */
+
+.hmm-colophon {
+  margin-top: auto;
+  background: var(--hmm-ground-alt);
+  border-top: 1px solid var(--hmm-line);
+}
+
+.hmm-colophon__inner {
+  max-width: var(--hmm-measure);
+  margin: 0 auto;
+  padding: 2.75rem var(--hmm-gutter) 2rem;
+}
+
+.hmm-colophon__top {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 2rem 3rem;
+}
+
+.hmm-colophon__identity {
+  max-width: 17rem;
+}
+
+.hmm-colophon__name {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+}
+
+.hmm-colophon__blurb {
+  margin: 0.35rem 0 0;
+  color: var(--hmm-ink-muted);
+  font-size: 0.85rem;
+  line-height: 1.6;
+}
+
+.hmm-colophon__panels {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.75rem 2.5rem;
+}
+
+.hmm-panel {
+  min-width: 8rem;
+  max-width: 13rem;
+}
+
+.hmm-panel__title {
+  margin: 0 0 0.6rem;
+  color: var(--hmm-ink-faint);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.hmm-colophon__baseline {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.35rem 1.5rem;
+  margin-top: 2.5rem;
+  padding-top: 1.15rem;
+  border-top: 1px solid var(--hmm-line);
+}
+
+.hmm-colophon__baseline > * {
+  margin: 0;
+  color: var(--hmm-ink-muted);
+  font-size: 0.8rem;
+}

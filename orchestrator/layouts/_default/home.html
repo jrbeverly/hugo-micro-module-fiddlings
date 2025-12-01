@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="{{ or .Site.Language.Lang "en" }}">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>{{ .Site.Title }}</title>
+        {{ partial "hook.html" (dict "hook" "head" "page" .) }}
+    </head>
+
+    <body>
+        <a class="hmm-skiplink" href="#hmm-content">Skip to content</a>
+        {{ partial "hook.html" (dict "hook" "header" "page" .) }}
+
+        <main class="hmm-main" id="hmm-content">
+            {{ .Content }}
+            {{ partial "hook.html" (dict "hook" "main" "page" .) }}
+        </main>
+
+        {{ partial "hook.html" (dict "hook" "footer" "page" .) }}
+        {{ partial "diagnostics.html" (dict "page" .) }}
+    </body>
+</html>

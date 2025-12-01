@@ -1,0 +1,21 @@
+[
+  {
+    "id": "analytics-style",
+    "hook": "head",
+    "type": "style",
+    "resource": "analytics/analytics.css",
+    "weight": -40
+  },
+  {
+    "id": "analytics-head",
+    "hook": "head",
+    "partial": "analytics/head.html",
+    "weight": 100
+  },
+  {
+    "id": "analytics-panel",
+    "hook": "footer.panel",
+    "partial": "analytics/status.html",
+    "weight": 30
+  }
+]

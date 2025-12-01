@@ -1,0 +1,6 @@
+{{- /* Trailing edge of the footer baseline, sharing the strip with whatever registered at a
+lower weight. */ -}}
+{{- $records := partial "registry.html" (dict "hook" "") -}}
+{{- $active := slice -}}
+{{- range $records }}{{ if .enabled }}{{ $active = $active | append .module }}{{ end }}{{ end -}}
+<p class="hmm-buildline">Hugo {{ hugo.Version }} · {{ len ($active | uniq) }} modules composed</p>

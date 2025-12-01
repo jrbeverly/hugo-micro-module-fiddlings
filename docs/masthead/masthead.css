@@ -1,0 +1,70 @@
+/* masthead micro-module — the top region.
+ *
+ * Owns "header.start" and "header.end" and nothing else. Guests are placed by this
+ * file and styled by their own modules.
+ */
+
+.hmm-masthead {
+  background: var(--hmm-ground);
+  border-bottom: 1px solid var(--hmm-line);
+}
+
+.hmm-masthead--sticky {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+}
+
+@supports (backdrop-filter: blur(10px)) {
+  .hmm-masthead--sticky {
+    background: var(--hmm-veil);
+    backdrop-filter: saturate(1.5) blur(10px);
+  }
+}
+
+.hmm-masthead__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  width: 100%;
+  max-width: var(--hmm-measure);
+  margin: 0 auto;
+  padding: 0.7rem var(--hmm-gutter);
+}
+
+.hmm-masthead__start,
+.hmm-masthead__end {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  min-width: 0;
+}
+
+.hmm-masthead__start {
+  gap: 0.3rem 1.25rem;
+}
+
+.hmm-masthead__end {
+  justify-content: flex-end;
+  gap: 0.5rem;
+}
+
+@media (max-width: 38rem) {
+  .hmm-masthead__inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+    padding-bottom: 0.6rem;
+  }
+
+  .hmm-masthead__start,
+  .hmm-masthead__end {
+    width: 100%;
+    gap: 0.4rem 0.75rem;
+  }
+
+  .hmm-masthead__end {
+    justify-content: flex-start;
+  }
+}

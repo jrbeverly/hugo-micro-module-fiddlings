@@ -1,0 +1,221 @@
+/* composition micro-module — registry visualisation.
+ *
+ * Hues are assigned positionally by this module; nothing in the registry carries a
+ * colour, so adding or removing a module reshuffles them deterministically.
+ *
+ * Selectors here are doubled up (.hmm-composition .hmm-composition__grid rather than the
+ * class alone) to out-specify the theme module's `.hmm-main ul` prose defaults without
+ * depending on stylesheet order.
+ */
+
+.hmm-composition .hmm-composition__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(14.5rem, 1fr));
+  gap: 0.9rem;
+  max-width: none;
+  margin: 1.6rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.hmm-composition .hmm-module {
+  position: relative;
+  overflow: hidden;
+  padding: 1rem 1.05rem 1.05rem;
+  background: var(--hmm-surface);
+  border: 1px solid var(--hmm-line);
+  border-radius: var(--hmm-radius);
+  box-shadow: var(--hmm-shadow-low);
+}
+
+.hmm-module::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: 3px;
+  background: var(--hmm-module-hue, var(--hmm-accent));
+}
+
+.hmm-module:nth-child(6n + 1) {
+  --hmm-module-hue: #5b56d6;
+}
+.hmm-module:nth-child(6n + 2) {
+  --hmm-module-hue: #17827f;
+}
+.hmm-module:nth-child(6n + 3) {
+  --hmm-module-hue: #c2622b;
+}
+.hmm-module:nth-child(6n + 4) {
+  --hmm-module-hue: #2f7fd4;
+}
+.hmm-module:nth-child(6n + 5) {
+  --hmm-module-hue: #8d4bb8;
+}
+.hmm-module:nth-child(6n + 6) {
+  --hmm-module-hue: #2f9152;
+}
+
+.hmm-composition .hmm-module--idle {
+  background: none;
+  box-shadow: none;
+  border-style: dashed;
+}
+
+.hmm-module--idle::before {
+  opacity: 0.3;
+}
+
+.hmm-module--idle .hmm-module__name {
+  color: var(--hmm-ink-muted);
+}
+
+.hmm-module__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.hmm-module__name {
+  font-family: var(--hmm-mono);
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.hmm-module__state {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  flex: none;
+  color: var(--hmm-ink-faint);
+  font-size: 0.66rem;
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+.hmm-module__state::before {
+  content: "";
+  width: 0.4rem;
+  height: 0.4rem;
+  border-radius: 50%;
+  background: var(--hmm-idle);
+}
+
+.hmm-module__state--live::before {
+  background: var(--hmm-live);
+  box-shadow: 0 0 0 3px var(--hmm-live-wash);
+}
+
+.hmm-module .hmm-module__meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.45rem;
+  max-width: none;
+  margin: 0.3rem 0 0.85rem;
+  color: var(--hmm-ink-muted);
+  font-size: 0.78rem;
+}
+
+.hmm-module__reason {
+  color: var(--hmm-ink-faint);
+  font-family: var(--hmm-mono);
+  font-size: 0.68rem;
+}
+
+.hmm-module .hmm-module__hooks {
+  display: grid;
+  gap: 0.3rem;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.hmm-module .hmm-module__hook {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.6rem;
+  margin: 0;
+  padding-top: 0.32rem;
+  border-top: 1px dashed var(--hmm-line);
+}
+
+.hmm-module__hook code {
+  padding: 0;
+  background: none;
+  color: var(--hmm-ink);
+  font-size: 0.75rem;
+}
+
+.hmm-module__type {
+  flex: none;
+  color: var(--hmm-ink-faint);
+  font-size: 0.64rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.hmm-buildline {
+  color: var(--hmm-ink-faint);
+  font-family: var(--hmm-mono);
+  font-size: 0.72rem;
+}
+
+/* Badge, placed through the top region's trailing surface. */
+
+.hmm-badge {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.3rem;
+  margin-left: 0.4rem;
+  padding: 0.3rem 0.7rem;
+  background: var(--hmm-accent-wash);
+  border-radius: var(--hmm-radius-pill);
+  color: var(--hmm-ink-muted);
+  font-size: 0.72rem;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+}
+
+.hmm-badge__num {
+  color: var(--hmm-accent-ink);
+  font-family: var(--hmm-mono);
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+.hmm-badge__sep {
+  color: var(--hmm-ink-faint);
+}
+
+@media (max-width: 46rem) {
+  .hmm-badge {
+    display: none;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .hmm-module:nth-child(6n + 1) {
+    --hmm-module-hue: #8d88ef;
+  }
+  .hmm-module:nth-child(6n + 2) {
+    --hmm-module-hue: #3bb3ac;
+  }
+  .hmm-module:nth-child(6n + 3) {
+    --hmm-module-hue: #e08a4e;
+  }
+  .hmm-module:nth-child(6n + 4) {
+    --hmm-module-hue: #62a8ef;
+  }
+  .hmm-module:nth-child(6n + 5) {
+    --hmm-module-hue: #b478dd;
+  }
+  .hmm-module:nth-child(6n + 6) {
+    --hmm-module-hue: #55b77c;
+  }
+}

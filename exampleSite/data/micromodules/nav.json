@@ -1,0 +1,8 @@
+{
+  "panelTitle": "On this page",
+  "items": [
+    { "label": "Overview", "url": "#overview" },
+    { "label": "Contract", "url": "#the-contract" },
+    { "label": "Modules", "url": "#composed-modules" }
+  ]
+}

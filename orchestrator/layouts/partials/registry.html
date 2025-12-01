@@ -1,0 +1,46 @@
+{{- /* Resolves every registered contribution into a deterministic, activation-aware list.
+
+Params:
+  hook  optional. When set, only contributions targeting that surface are returned.
+
+A module is active when the site provides a data resource for it at
+data/micromodules/<module>. Presence is the install switch and the contents are that
+module's settings — there is no enablement flag in site config. Modules therefore must
+not ship anything under data/micromodules themselves, or every installed module would
+activate itself.
+
+Returns a slice of dicts with keys: id, hook, type, module, partial, resource, weight,
+settings, enabled, reason.
+
+Ordering is weight ascending then id ascending, expressed as one composite sort key so
+the result never depends on the stability of the underlying sort. */ -}}
+{{- $filter := .hook | default "" -}}
+{{- $config := hugo.Data.micromodules | default dict -}}
+{{- $records := slice -}}
+{{- range $module, $entries := hugo.Data.contributions -}}
+  {{- $enabled := isset $config $module -}}
+  {{- $settings := dict -}}
+  {{- $reason := "data-absent" -}}
+  {{- if $enabled -}}
+    {{- $settings = index $config $module -}}
+    {{- $reason = "data-present" -}}
+  {{- end -}}
+  {{- range $entries -}}
+    {{- if or (eq $filter "") (eq .hook $filter) -}}
+      {{- $weight := int (.weight | default 0) -}}
+      {{- $records = $records | append (dict
+            "id" .id
+            "hook" .hook
+            "type" (.type | default "partial")
+            "module" $module
+            "partial" (.partial | default "")
+            "resource" (.resource | default "")
+            "weight" $weight
+            "settings" $settings
+            "enabled" $enabled
+            "reason" $reason
+            "sortkey" (printf "%06d:%s" (add $weight 100000) .id)) -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- return sort $records "sortkey" "asc" -}}

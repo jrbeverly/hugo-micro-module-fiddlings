@@ -1,0 +1,24 @@
+{{- /* Emits a trace summary of the resolved registry when debug is on.
+
+Flags contributions aimed at a surface the orchestrator does not declare: those are
+discovered and resolved, but nothing ever renders them, so they would otherwise fail
+silently. */ -}}
+{{- $page := .page -}}
+{{- $site := $page.Site -}}
+{{- $debug := and $site.Params.micromodules (index $site.Params.micromodules "debug") -}}
+{{- if $debug -}}
+{{- $records := partial "registry.html" (dict "hook" "") -}}
+{{- $surfaces := hugo.Data.hmm.surfaces | default slice -}}
+{{- $modules := slice -}}
+{{- $active := slice -}}
+{{- range $records }}{{ $modules = $modules | append .module }}{{ if .enabled }}{{ $active = $active | append .module }}{{ end }}{{ end -}}
+{{- $modules = $modules | uniq | sort -}}
+{{- $active = $active | uniq | sort -}}
+{{ printf "<!-- hmm:summary modules=%d active=%d contributions=%d surfaces=%d -->" (len $modules) (len $active) (len $records) (len $surfaces) | safeHTML }}
+{{ printf "<!-- hmm:modules %s -->" (delimit $modules " ") | safeHTML }}
+{{- range $records -}}
+{{- if not (in $surfaces .hook) }}
+{{ printf "<!-- hmm:orphan id=%q hook=%q module=%q -->" .id .hook .module | safeHTML }}
+{{- end -}}
+{{- end -}}
+{{- end -}}

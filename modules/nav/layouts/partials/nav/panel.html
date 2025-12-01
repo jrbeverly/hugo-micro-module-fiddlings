@@ -1,0 +1,12 @@
+{{- /* The same link set again, as a footer panel. One module, two surfaces, opened by two
+different region owners. */ -}}
+{{- with index .settings "items" }}
+<div class="hmm-panel">
+  <h2 class="hmm-panel__title">{{ index $.settings "panelTitle" | default "Navigate" }}</h2>
+  <ul class="hmm-navpanel">
+    {{- range . }}
+    <li><a class="hmm-navpanel__link" href="{{ .url }}">{{ .label }}</a></li>
+    {{- end }}
+  </ul>
+</div>
+{{- end }}

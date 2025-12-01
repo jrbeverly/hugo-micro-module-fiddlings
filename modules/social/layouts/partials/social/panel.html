@@ -1,0 +1,23 @@
+{{- /* Outbound links as a footer panel. Uses the .hmm-panel envelope the region owner
+publishes, and adds only the list inside it. */ -}}
+{{- $links := index .settings "links" | default slice -}}
+{{- with $links }}
+<div class="hmm-panel">
+  <h2 class="hmm-panel__title">{{ index $.settings "panelTitle" | default "Elsewhere" }}</h2>
+  <ul class="hmm-social">
+    {{- range . }}
+    <li>
+      <a class="hmm-social__link" href="{{ .url | relURL }}"{{ if strings.HasPrefix .url "http" }} rel="noopener"{{ end }}>
+        <span>{{ .label }}</span>
+        <svg class="hmm-social__glyph" width="11" height="11" viewBox="0 0 12 12" fill="none"
+             stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"
+             aria-hidden="true" focusable="false">
+          <path d="M3.4 8.6 8.6 3.4"></path>
+          <path d="M4.6 3.4h4v4"></path>
+        </svg>
+      </a>
+    </li>
+    {{- end }}
+  </ul>
+</div>
+{{- end }}

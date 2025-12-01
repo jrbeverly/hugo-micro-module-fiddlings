@@ -1,0 +1,22 @@
+{{- /* Language switcher — placeholder only. Renders the control and nothing behind it:
+no translation lookup, no alternate outputs, no language routing. Weight 50 keeps it
+last in the trailing group, so it sits at the far right of the region.
+
+A real version would read .Site.Languages and .Translations; this exists to prove a
+module can claim the trailing edge of a region it does not own. */ -}}
+{{- $current := index .settings "current" | default "EN" -}}
+{{- $available := index .settings "available" | default slice -}}
+<span class="hmm-locale" title="Placeholder{{ with $available }} · {{ delimit . ", " }}{{ end }}">
+  <svg class="hmm-locale__glyph" width="15" height="15" viewBox="0 0 16 16" fill="none"
+       stroke="currentColor" stroke-width="1.35" aria-hidden="true" focusable="false">
+    <circle cx="8" cy="8" r="6.3"></circle>
+    <path d="M1.7 8h12.6"></path>
+    <path d="M8 1.7c1.7 1.8 2.6 4 2.6 6.3S9.7 12.5 8 14.3C6.3 12.5 5.4 10.3 5.4 8S6.3 3.5 8 1.7Z"></path>
+  </svg>
+  <span class="hmm-locale__code">{{ $current }}</span>
+  <svg class="hmm-locale__caret" width="10" height="10" viewBox="0 0 12 12" fill="none"
+       stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
+       aria-hidden="true" focusable="false">
+    <path d="m3.2 4.8 2.8 2.8 2.8-2.8"></path>
+  </svg>
+</span>

@@ -1,0 +1,39 @@
+/* analytics micro-module — styles for its footer panel only.
+ *
+ * The panel envelope (.hmm-panel) belongs to the footer module; this file adds nothing
+ * outside its own namespace.
+ */
+
+.hmm-analytics__stream {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin: 0 0 0.35rem;
+}
+
+.hmm-analytics__stream code {
+  font-size: 0.78rem;
+}
+
+.hmm-analytics__dot {
+  width: 0.4rem;
+  height: 0.4rem;
+  flex: none;
+  border-radius: 50%;
+  background: var(--hmm-live);
+  box-shadow: 0 0 0 3px var(--hmm-live-wash);
+}
+
+.hmm-analytics__note {
+  margin: 0;
+  color: var(--hmm-ink-faint);
+  font-size: 0.78rem;
+  line-height: 1.5;
+}
+
+.hmm-analytics__note code {
+  background: none;
+  padding: 0;
+  color: var(--hmm-ink-muted);
+  font-size: 0.75rem;
+}

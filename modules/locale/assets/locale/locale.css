@@ -1,0 +1,30 @@
+/* locale micro-module — the placeholder switcher control. */
+
+.hmm-locale {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.3rem 0.5rem 0.3rem 0.55rem;
+  border: 1px solid var(--hmm-line);
+  border-radius: var(--hmm-radius-pill);
+  color: var(--hmm-ink-muted);
+  cursor: default;
+  white-space: nowrap;
+}
+
+.hmm-locale__glyph {
+  flex: none;
+  opacity: 0.8;
+}
+
+.hmm-locale__code {
+  font-family: var(--hmm-mono);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+.hmm-locale__caret {
+  flex: none;
+  color: var(--hmm-ink-faint);
+}

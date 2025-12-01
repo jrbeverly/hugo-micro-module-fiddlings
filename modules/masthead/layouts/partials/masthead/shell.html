@@ -1,0 +1,13 @@
+{{- /* Renders the top region and opens two positional surfaces inside it.
+
+This module contributes no content of its own: it decides only that the region has a
+leading and a trailing group, and lays them out. What lands in either is somebody
+else's registration. */ -}}
+{{- $page := .page -}}
+{{- $sticky := index .settings "sticky" | default false -}}
+<header class="hmm-masthead{{ if $sticky }} hmm-masthead--sticky{{ end }}">
+  <div class="hmm-masthead__inner">
+    <div class="hmm-masthead__start">{{ partial "hook.html" (dict "hook" "header.start" "page" $page) }}</div>
+    <div class="hmm-masthead__end">{{ partial "hook.html" (dict "hook" "header.end" "page" $page) }}</div>
+  </div>
+</header>

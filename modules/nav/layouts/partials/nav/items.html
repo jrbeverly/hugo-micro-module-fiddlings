@@ -1,0 +1,10 @@
+{{- /* Navigation links, placed after the brand in the leading group by weight 20. The
+orchestrator injects this module's data record as .settings, so the link set is a
+website-layer concern and nothing is hardcoded here. */ -}}
+{{- with index .settings "items" }}
+<nav class="hmm-nav" aria-label="Primary">
+  {{- range . }}
+  <a class="hmm-nav__link" href="{{ .url }}">{{ .label }}</a>
+  {{- end }}
+</nav>
+{{- end }}

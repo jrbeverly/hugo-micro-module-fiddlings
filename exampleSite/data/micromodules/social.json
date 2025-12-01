@@ -1,0 +1,8 @@
+{
+  "panelTitle": "Elsewhere",
+  "links": [
+    { "label": "Source", "url": "https://example.com/hmm" },
+    { "label": "Mastodon", "url": "https://example.social/@hmm" },
+    { "label": "Feed", "url": "index.xml" }
+  ]
+}
